@@ -1,0 +1,13 @@
+<ng-container *ngIf="data">
+  <div class="finish-wrapper">
+    <h2>Registration Summary</h2>
+
+    <p *ngIf="data.email"><strong>Email:</strong> {{ data.email }}</p>
+    <p *ngIf="data.industry"><strong>Industry:</strong> {{ data.industry }}</p>
+    <p *ngIf="data.experienceInYears !== null">
+      <strong>Experience:</strong> {{ data.experienceInYears }} years
+    </p>
+    <p *ngIf="data.yourRole"><strong>Your Role:</strong> {{ data.yourRole }}</p>
+    <p *ngIf="data.aboutUs"><strong>About Us:</strong> {{ data.aboutUs }}</p>
+  </div>
+</ng-container>

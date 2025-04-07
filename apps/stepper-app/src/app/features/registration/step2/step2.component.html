@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Industry</mat-label>
+    <mat-select formControlName="industry">
+      <mat-option value="marketing">Marketing</mat-option>
+      <mat-option value="it">IT</mat-option>
+      <mat-option value="financial_services">Financial Services</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Experience In Years</mat-label>
+    <input
+      matInput
+      type="number"
+      formControlName="experienceInYears"
+      required
+      min="0"
+      max="50"
+    />
+    <mat-error *ngIf="formGroup.get('experienceInYears')?.invalid">
+      Experience required (0–50) years
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Your Role</mat-label>
+    <mat-select formControlName="yourRole">
+      <mat-option value="developer">Developer</mat-option>
+      <mat-option value="manager">Manager</mat-option>
+      <mat-option value="designer">Designer</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button color="accent" (click)="onBack()">Back</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="formGroup.invalid"
+      (click)="onNext()"
+    >
+      Next
+    </button>
+  </div>
+</form>

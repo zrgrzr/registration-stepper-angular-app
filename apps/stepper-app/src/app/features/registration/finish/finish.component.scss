@@ -1,0 +1,22 @@
+.finish-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  @media (max-width: 768px) {
+    width: 96%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+}

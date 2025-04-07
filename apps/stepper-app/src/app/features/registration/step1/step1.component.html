@@ -1,0 +1,65 @@
+<form [formGroup]="formGroup">
+  <!-- Email -->
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" required />
+    <mat-error *ngIf="formGroup.get('email')?.invalid">
+      Valid email required!
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Password -->
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      [type]="hidePassword() ? 'password' : 'text'"
+      formControlName="password"
+    />
+    <button mat-icon-button matSuffix type="button" (click)="togglePassword()">
+      <mat-icon>{{
+        hidePassword() ? 'visibility_off' : 'visibility'
+      }}</mat-icon>
+    </button>
+    <mat-error *ngIf="formGroup.get('password')?.invalid">
+      Password required!
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Confirm Password -->
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Confirm Password</mat-label>
+    <input
+      matInput
+      [type]="hidePassword() ? 'password' : 'text'"
+      formControlName="confirmPassword"
+      required
+    />
+    <button mat-icon-button matSuffix type="button" (click)="togglePassword()">
+      <mat-icon>{{
+        hidePassword() ? 'visibility_off' : 'visibility'
+      }}</mat-icon>
+    </button>
+
+    <mat-error *ngIf="formGroup.get('confirmPassword')?.hasError('required')">
+      Confirm password required!
+    </mat-error>
+
+    <mat-error
+      *ngIf="formGroup.get('confirmPassword')?.hasError('passwordsMismatch')"
+    >
+      Passwords do not match!
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="formGroup.invalid || passwordMismatch()"
+      (click)="goToStep2()"
+    >
+      Next
+    </button>
+  </div>
+</form>

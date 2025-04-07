@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>About Us</mat-label>
+    <textarea matInput formControlName="aboutUs" rows="5"></textarea>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button color="accent" (click)="onBack()">Back</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="formGroup.invalid"
+      (click)="onFinish()"
+    >
+      Finish
+    </button>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+<div class="registration-stepper-wrapper">
+  <mat-horizontal-stepper
+    [linear]="true"
+    [selectedIndex]="selectedIndex()"
+    (selectionChange)="onStepChange($event)"
+  >
+    <mat-step [stepControl]="step1Control" label="Step 1"></mat-step>
+
+    <mat-step [stepControl]="step2Control" label="Step 2"></mat-step>
+
+    <mat-step [stepControl]="step3Control" label="Step 3"></mat-step>
+  </mat-horizontal-stepper>
+
+  <router-outlet />
+</div>
