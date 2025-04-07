@@ -23,7 +23,7 @@ Build Docker:
     yarn docker:build
 ```
 
-Build Docker:
+Run Docker:
 
 ```sh
     yarn docker:run
